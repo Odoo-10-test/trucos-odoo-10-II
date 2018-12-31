@@ -20,3 +20,19 @@ user_id = fields.Many2one('res.users', string='Responsable', track_visibility='o
 company_id = fields.Many2one('res.company', string='Compañía', change_default=True, readonly=True,
             default=lambda self: self.env['res.company']._company_default_get('traveler.register'))
 ```
+
+# One2many
+
+```
+product_ids = fields.One2many('product.list', 'template_id', string='Listado Productos')
+
+        
+class ProductList(models.Model):
+    _name = 'product.list'
+    _description = 'Listado de Productos'
+    parnert_id = fields.Many2one('res.partner', 'Proveedor')
+    cost_compra_fob = fields.Float('Costo de Compra FOB')
+
+    template_id = fields.Many2one('product.template', 'producto', ondelete='cascade')
+```
+
