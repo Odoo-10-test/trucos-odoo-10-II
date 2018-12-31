@@ -46,3 +46,28 @@
 <button name="exe_next" string="Próximo" class="oe_highlight" type="object"
                           confirm="¿Estás seguro de adelantar el paso?"/>
 ```
+
+
+# Secuencia
+```
+@api.model
+    def create(self, vals):
+        if vals.get('name', "New") == "New":
+            vals['name'] = self.env['ir.sequence'].next_by_code('proceso.administracion') or "New"
+        return super(ProcesoAdministracion, self).create(vals)
+        
+        
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_real_proceso_administracion" model="ir.sequence">
+            <field name="name">Proceso Administracion</field>
+            <field name="code">proceso.administracion</field>
+            <field name="prefix">ADM/%(range_year)s/</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>
+
+```
