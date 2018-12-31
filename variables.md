@@ -34,5 +34,16 @@ class ProductList(models.Model):
     cost_compra_fob = fields.Float('Costo de Compra FOB')
 
     template_id = fields.Many2one('product.template', 'producto', ondelete='cascade')
+    
+<notebook>
+        <page name="listado_materiales" string="Costo x Proveedores">
+                    <field name="product_ids">
+                        <tree editable="bottom">
+                            <field name="parnert_id" required="1"/>
+                            <field name="cost_compra_fob" required="1"/>
+                        </tree>
+                    </field>
+         </page>
+ </notebook>    
 ```
 
