@@ -47,3 +47,23 @@ class ProductList(models.Model):
  </notebook>    
 ```
 
+
+# Etiquetas
+
+```
+class ProcesoArriendoTag(models.Model):
+    _name = 'proceso.arriendo.tag'
+    _description = 'Compra y Venta Tag'
+
+    active = fields.Boolean(default=True)
+    color = fields.Integer(required=True, default=0)
+    name = fields.Char(required=True)
+    
+tag_ids = fields.Many2many('proceso.arriendo.tag', string='Etiquetas')  
+
+ <div class="oe_title">
+   <h1><field name="name" readonly="1"/></h1>
+   <field name="tag_ids" placeholder="Etiquetas" widget="many2many_tags"  options="{'no_create_edit': True}"/>
+</div>
+```
+
