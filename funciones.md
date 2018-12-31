@@ -39,8 +39,8 @@
 # Ejecutar Boton
 ```
 @api.multi
-    def exe_stock(self):
-        self.state = 'stock_disponible'
+def exe_stock(self):
+    self.state = 'stock_disponible'
         
         
 <button name="exe_next" string="Próximo" class="oe_highlight" type="object"
