@@ -36,6 +36,15 @@
 ```
 
 
+```
+@api.model
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
+        records = self.search((args or []) + [('desc', operator, name)])
+        if records:
+            return records.name_get()
+        return super(HrHaberesydesc, self).name_search(name, args, operator, limit)
+```
+
 # Ejecutar Boton
 ```
 @api.multi
