@@ -37,6 +37,13 @@
 
 
 ```
+class ListDiscounts(models.Model):
+    _name = 'list.discounts'
+    _description = 'Lista de Descuentos'
+    _rec_name = 'product_id'
+```    
+
+```
 @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):
         records = self.search((args or []) + [('desc', operator, name)])
