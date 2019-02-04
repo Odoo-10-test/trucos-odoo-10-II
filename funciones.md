@@ -1,6 +1,19 @@
 
 # Funciones
 
+# Valor por defecto desde una funcion
+
+```
+journal_imposiciones_id = fields.Many2one('account.journal', 'Diario Pago Imposiciones',
+                                 default=lambda self: self._get_default_journal(), )
+
+    @api.model
+    def _get_default_journal(self):
+        return self.env['ir.values'].get_defaults_dict('hr.payroll.config.settings').get(
+                            'journal_id')
+ ```                           
+                            
+
 # Onchange
 
 ```
