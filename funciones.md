@@ -1,6 +1,11 @@
 
 # Funciones
 
+
+# Calculando el Stock
+```
+stock = sum(id.stock_quant_ids.mapped('qty'))
+ ```   
 # Valor por defecto desde una funcion
 
 ```
